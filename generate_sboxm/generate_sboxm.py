@@ -55,7 +55,7 @@ def generate_sboxm():
                    [0, 0, 1, 0, 0, 0, 1, 1],
                    [0, 0, 0, 0, 1, 1, 0, 1] ])
 
-	v = np.array([ [0, 0, 1, 0, 1, 0, 1, 1] ])  # binary(43)
+	v = np.array([ [0, 0, 1, 0, 1, 0, 1, 1] ])  # binary(0x2b)
 
 	return [ genaffsbox.S(i, M, v, 8) for i in range(256) ]
 
