@@ -29,7 +29,7 @@ This repo provides an utility to crack a ciphertext crypted with AES-256-M in EC
 1. Encrypt some file using `aes256.cpp` (`aes256m_cpp` folder):
 ```
 $ make
-$ ./aes256m -e -m ECB -i plaintext -o ciphertext -p v3ry_s3cr3t_p4ssw0rd
+$ ./aes256m -e -m ECB -i /path/to/plaintext -o ciphertext -p v3ry_s3cr3t_p4ssw0rd
 ```
 2. Get the first block of the plaintext (with a hex editor for example).
 3. Crack the ciphertext using `crack.py` (`cracker` folder):
