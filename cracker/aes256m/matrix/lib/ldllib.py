@@ -25,13 +25,10 @@ along with aes256m-cracker.  If not, see <http://www.gnu.org/licenses/>.
 @endlicense
 """
 
-import sys
-sys.path.insert(0, './aes256m/matrix/lib')
-
 import numpy as np
-from sblib import SB
-from srlib import SR
-from mclib import MC
+from .sblib import SB
+from .srlib import SR
+from .mclib import MC
 
 # L = MC * SR * SB, L - 128x128 binary matrix
 
