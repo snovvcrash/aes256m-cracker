@@ -25,15 +25,12 @@ along with aes256m-cracker.  If not, see <http://www.gnu.org/licenses/>.
 @endlicense
 """
 
-import sys
-sys.path.insert(0, './aes256m/matrix/lib')
-
 import numpy as np
-from sblib  import SB
-from srlib  import SR
-from mclib  import MC
-from vlib   import V
-from ldllib import L
+from .lib.sblib  import SB
+from .lib.srlib  import SR
+from .lib.mclib  import MC
+from .lib.vlib   import V
+from .lib.ldllib import L
 
 # ----------------------------------------------------------
 # ------------------------ SubBytes ------------------------
