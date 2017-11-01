@@ -34,6 +34,6 @@ $ ./aes256m -e -m ECB -i /path/to/plaintext -o ciphertext -p v3ry_s3cr3t_p4ssw0r
 2. Get the first block of the plaintext (with a hex editor for example).
 3. Crack the ciphertext using `crack.py` (`cracker` folder):
 ```
-$ python3 crack.py ffffffffffffffffffffffffffffffff /path/to/ciphertext
+$ python3 crack.py 00ff00ff00ff00ff00ff00ff00ff00ff /path/to/ciphertext
 ```
-(where `ffffffffffffffffffffffffffffffff` is the first block of plaintext).
+(where `00ff00ff00ff00ff00ff00ff00ff00ff` is the first block of plaintext).
