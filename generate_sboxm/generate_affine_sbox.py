@@ -30,6 +30,8 @@ import random
 import math
 import sys
 
+from itertools import product
+
 # ----------------------------------------------------------
 # ---------------------- AFFINE SBOX -----------------------
 # ----------------------------------------------------------
@@ -158,18 +160,16 @@ def is_sbox_degenerate(sbox):
 	length = len(sbox)
 
 	diff_table = [[0] * length for _ in range(length)]
-	for c in range(length):
-		for d in range(length):
-			diff_table[c ^ d][sbox[c] ^ sbox[d]] += 1
+	for c, d in product( *([list(range(length))]*2) ):
+		diff_table[c ^ d][sbox[c] ^ sbox[d]] += 1
 
 	count_prob = 0
-	for c in range(1, length):
-		for d in range(1, length):
-			if diff_table[c][d] == length:
-				count_prob += 1
-			# print('{} : {} -> {}'.format(diff_table[c][d], c, d))
+	for c, d in product( *([list(range(length))]*2) ):
+		if diff_table[c][d] == length:
+			count_prob += 1
+		#print('{} : {} -> {}'.format(diff_table[c][d], c, d))
 
-	return count_prob == length - 1
+	return count_prob == length
 
 # ----------------------------------------------------------
 # -------------------------- MAIN --------------------------
