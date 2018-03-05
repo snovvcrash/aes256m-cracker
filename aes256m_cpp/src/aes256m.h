@@ -1,17 +1,14 @@
 /**
- * rijndael.h
+ * aes256m.h
  *
- * AES (Rijndael)
+ * AES-256-M
  * by snovvcrash
  * 12.2016
  */
 
-/* FIPS 197, Advanced Encryption Standard (AES) - fips-197.pdf
-	http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf */
-
 #pragma once
-#ifndef RIJNDAEL_H
-#define RIJNDAEL_H
+#ifndef AES256M_H
+#define AES256M_H
 
 using state_t = uint8_t**;
 extern const size_t Nb;
@@ -78,17 +75,6 @@ void AES_CBC_DecryptFile(
 );
 
 //////////////////////////////////////////////////////////////////////
-////////////////////////////// TESTING ///////////////////////////////
-//////////////////////////////////////////////////////////////////////
-
-#ifdef SIMULATE
-void cipherExampleVectorFIPS197(uint8_t* block, state_t key_schedule);
-void invCipherExampleVectorFIPS197(uint8_t* block, state_t key_schedule);
-void AES_SimulateExampleVectorEncryptionFIPS197();
-void AES_SimulateBlockEncryption();
-#endif
-
-//////////////////////////////////////////////////////////////////////
 ///////////////////////////// UTILITIES //////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -96,12 +82,6 @@ uint8_t getSBoxValue(uint8_t num);
 uint8_t getInvSBoxValue(uint8_t num);
 state_t allocMatrix(size_t rows, size_t cols);
 void deallocMatrix(state_t old_matrix, size_t rows);
-
-#ifdef SIMULATE
-void printStateInRow(state_t state);
-void printKeySchedInRow(state_t key_schedule, size_t col_start, size_t col_end);
-std::ostream& operator<<(std::ostream& out, uint8_t val);
-#endif
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////// MATH ////////////////////////////////
@@ -116,4 +96,4 @@ uint8_t mulBy0b(uint8_t item);
 uint8_t mulBy0d(uint8_t item);
 uint8_t mulBy0e(uint8_t item);
 
-#endif // RIJNDAEL_H
+#endif // AES256M_H
