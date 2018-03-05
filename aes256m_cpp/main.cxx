@@ -1,7 +1,7 @@
 /**
  * main.cxx
  *
- * AES (Rijndael)
+ * AES-256-M
  * by snovvcrash
  * 05.2017
  */
@@ -19,7 +19,8 @@
 #include <sys/types.h>    // S_ISREG
 #include <sys/stat.h>     // struct stat
 #include <getopt.h>
-#include "./src/rijndael.h"
+
+#include "./src/aes256m.h"
 #include "./src/sha256.h"
 
 #define ERROR_CIPHER_MODE     ( -1)
@@ -46,7 +47,6 @@ int isRegularFile(const char* path);
 void* spinner(void* none);
 
 int main(int argc, char* argv[]) {
-#ifndef SIMULATE
 	int inv = -1;
 	int mode = 0;
 	char* input = nullptr;
@@ -278,37 +278,6 @@ int main(int argc, char* argv[]) {
 
 	infile.close();
 	outfile.close();
-
-#else
-	char help[] =
-		"POSSIBLE OPTIONS (choose one of the following)\n"
-		"	--simulate-exmpl-vector\n"
-		"	    Simulate encryption(decryption) of the examle vector submitted in the FIPS197 (Appendix C)\n"
-		"\n"
-		"	--simulate-block\n"
-		"	    Simulate encryption(decryption) of a test block with key hashed via SHA256\n"
-		"\nBUILD: SIMULATION\n";
-
-	if (argc == 2) {
-		if (!std::strcmp(argv[1], "--simulate-exmpl-vector"))
-			AES_SimulateExampleVectorEncryptionFIPS197();
-
-		else if (!std::strcmp(argv[1], "--simulate-block"))
-			AES_SimulateBlockEncryption();
-
-		else if (!std::strcmp(argv[1], "-h"))
-			cout << help;
-
-		else {
-			cerr << "main: Invalid option, rerun with -h for help" << endl;
-			return ERROR_OPTION_TYPE;
-		}
-	}
-	else {
-		cerr << "main: Invalid number of options, rerun with -h for help" << endl;
-		return ERROR_OPTION_NUMBER;
-	}
-#endif // SIMULATE
 
 	return 0;
 }
