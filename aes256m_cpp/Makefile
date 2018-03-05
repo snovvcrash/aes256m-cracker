@@ -1,7 +1,7 @@
 #
 # Makefile
 #
-# AES (Rijndael)
+# AES-256-M
 # by snovvcrash
 # 12.2016
 #
@@ -52,11 +52,6 @@ debug: CXXFLAGS+=-DDEBUG -g -O0
 debug: CFLAGS+=-DDEBUG -g -O0
 debug: all
 	@echo "DEBUG MODE"
-
-simulation: CXXFLAGS+=-DSIMULATE -g -O0
-simulation: CFLAGS+=-DSIMULATE -g -O0
-simulation: all
-	@echo "SIMULATION MODE"
 
 clean:
 	@echo "Clean project"
