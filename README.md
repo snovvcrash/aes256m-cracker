@@ -31,9 +31,9 @@ This repo provides an cli-utility to crack a ciphertext crypted with AES-256-M i
 $ make
 $ ./aes256m -e -m ECB -i /path/to/plaintext -o ciphertext -p v3ry_s3cr3t_p4ssw0rd
 ```
-2. Copy the string containing the first block of the plaintext to the clipboard (with xxd for example):
+2. Copy the string containing the first block of the plaintext to the clipboard (with `xxd` for example):
 ```
-$ xxd 1.py | head -n 1 | cut -d " " -f 2-9 | tr -d " "
+$ xxd /path/to/plaintext | head -n 1 | cut -d " " -f 2-9 | tr -d " "
 ```
 3. Crack the ciphertext using `crack.py` (`cracker` folder):
 ```
