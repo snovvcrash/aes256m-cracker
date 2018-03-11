@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
 @file generate_affine_sbox.py
 @author snovvcrash <snovvcrash@protonmail.com>
