@@ -23,7 +23,7 @@ d1 3e b7 58 8c 63 ea 05 ac 43 ca 25 f1 1e 97 78
 c1 2e a7 48 9c 73 fa 15 bc 53 da 35 e1 0e 87 68
 ```
 
-This repo provides an cli-utility to crack a ciphertext crypted with AES-256-M in ECB mode only with one pair of {*P, C*} available (*P* - a block of plaintext, *C* - a corresponding block of ciphertext).
+This repo provides an cli-utility to crack a ciphertext crypted with AES-256-M in ECB mode only with one pair of {*P, C*} available (*P* - a block of plaintext, *C* - the corresponding block of ciphertext).
 
 ## Usage
 1. Encrypt some file using `aes256.cpp` (`aes256m_cpp` folder):
