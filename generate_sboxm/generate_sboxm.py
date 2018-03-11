@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
 @file generate_sboxm.py
 @author snovvcrash <snovvcrash@protonmail.com>
@@ -26,7 +29,8 @@ along with aes256m-cracker.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 import numpy as np
-import generate_affine_sbox as genaffsbox
+
+from generate_affine_sbox import S, print_sbox
 
 original_sboxm = [0x2b, 0xc4, 0x4d, 0xa2, 0x76, 0x99, 0x10, 0xff, 0x56, 0xb9, 0x30, 0xdf, 0x0b, 0xe4, 0x6d, 0x82,
                   0xdb, 0x34, 0xbd, 0x52, 0x86, 0x69, 0xe0, 0x0f, 0xa6, 0x49, 0xc0, 0x2f, 0xfb, 0x14, 0x9d, 0x72,
@@ -47,21 +51,21 @@ original_sboxm = [0x2b, 0xc4, 0x4d, 0xa2, 0x76, 0x99, 0x10, 0xff, 0x56, 0xb9, 0x
 
 def generate_sboxm():
 	M = np.array([ [0, 1, 1, 1, 0, 0, 0, 1],
-                       [1, 1, 0, 1, 1, 1, 1, 1],
-                       [0, 1, 1, 1, 1, 0, 1, 1],
-                       [0, 0, 1, 1, 1, 1, 0, 0],
-                       [0, 0, 1, 0, 1, 1, 0, 1],
-                       [1, 0, 1, 0, 1, 1, 1, 1],
-                       [0, 0, 1, 0, 0, 0, 1, 1],
-                       [0, 0, 0, 0, 1, 1, 0, 1] ])
+                   [1, 1, 0, 1, 1, 1, 1, 1],
+                   [0, 1, 1, 1, 1, 0, 1, 1],
+                   [0, 0, 1, 1, 1, 1, 0, 0],
+                   [0, 0, 1, 0, 1, 1, 0, 1],
+                   [1, 0, 1, 0, 1, 1, 1, 1],
+                   [0, 0, 1, 0, 0, 0, 1, 1],
+                   [0, 0, 0, 0, 1, 1, 0, 1] ])
 
-	v = np.array([ [0, 0, 1, 0, 1, 0, 1, 1] ])  # binary(0x2b)
+	v = np.array([ [0, 0, 1, 0, 1, 0, 1, 1] ])  # binary(0x2b) = binary(43)
 
-	return [ genaffsbox.S(i, M, v, 8) for i in range(256) ]
+	return [ S(i, M, v, 8) for i in range(256) ]
 
 if __name__ == '__main__':
 	sboxm = generate_sboxm()
-	genaffsbox.print_sbox('Sbox-M', sboxm, 256)
+	print_sbox('Sbox-M', sboxm, 256)
 
 	assert sboxm == original_sboxm, 'MISMATCH!'
 	print('\nMATCH!')
