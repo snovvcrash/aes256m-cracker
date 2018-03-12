@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
-@file ldllib.py
+@file L.py
 @author snovvcrash <snovvcrash@protonmail.com>
 @date 2017-10
 
@@ -26,9 +29,10 @@ along with aes256m-cracker.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 import numpy as np
-from .sblib import SB
-from .srlib import SR
-from .mclib import MC
+
+from .SB import SB
+from .SR import SR
+from .MC import MC
 
 # L = MC * SR * SB, L - 128x128 binary matrix
 

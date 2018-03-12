@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
 @file transformations.py
 @author snovvcrash <snovvcrash@protonmail.com>
@@ -26,11 +29,12 @@ along with aes256m-cracker.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 import numpy as np
-from .lib.sblib  import SB
-from .lib.srlib  import SR
-from .lib.mclib  import MC
-from .lib.vlib   import V
-from .lib.ldllib import L
+
+from .lib.SB import SB
+from .lib.SR import SR
+from .lib.MC import MC
+from .lib.V  import V
+from .lib.L  import L
 
 # ----------------------------------------------------------
 # ------------------------ SubBytes ------------------------

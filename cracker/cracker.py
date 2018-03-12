@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
-@file crack.py
+@file cracker.py
 @author snovvcrash <snovvcrash@protonmail.com>
 @date 2017-10
 
@@ -28,7 +31,8 @@ along with aes256m-cracker.  If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
 import numpy as np
-from inverseL import invL
+
+from invL import invL
 
 def decblock_to_binstate(decblock):
 	decstate = [ decblock[r + 4*c] for r in range(4) for c in range(4) ]

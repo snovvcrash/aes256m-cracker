@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
 @file comparator.py
 @author snovvcrash <snovvcrash@protonmail.com>
@@ -27,6 +30,7 @@ along with aes256m-cracker.  If not, see <http://www.gnu.org/licenses/>.
 
 import random
 import numpy as np
+
 import aes256m.standard.transformations as standard
 import aes256m.matrix.transformations as matrix
 
@@ -61,7 +65,7 @@ class Comparator:
 		assert state_st == state_mat, 'MISMATCH!'
 		print('\nMATCH!')
 
-		print('------------------------------------\n')
+		print('------------------------------------')
 
 # ----------------------------------------------------------
 # -------------------------- Main --------------------------

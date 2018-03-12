@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
-@file srlib.py
+@file SR.py
 @author snovvcrash <snovvcrash@protonmail.com>
 @date 2017-10
 

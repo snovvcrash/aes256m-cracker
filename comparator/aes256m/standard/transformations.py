@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
 @file transformations.py
 @author snovvcrash <snovvcrash@protonmail.com>
@@ -81,42 +84,42 @@ mul_by_03 = [0x00, 0x03, 0x06, 0x05, 0x0c, 0x0f, 0x0a, 0x09, 0x18, 0x1b, 0x1e, 0
 # ----------------------------------------------------------
 
 def sub_bytes(state):
-	moded_state = [0] * 16
-	for i in range(4):
-		for j in range(4):
-			moded_state[j + 4*i] = sboxm[state[j + 4*i]]
-	return moded_state
+    moded_state = [0] * 16
+    for i in range(4):
+        for j in range(4):
+            moded_state[j + 4*i] = sboxm[state[j + 4*i]]
+    return moded_state
 
 # ----------------------------------------------------------
 # ----------------------- ShiftRows ------------------------
 # ----------------------------------------------------------
 
 def shift_rows(state):
-	tmp_row = [0] * 4
-	moded_state = state[:4] + [0]*12
-	for i in range(1, 4):
-		for j in range(4):
-			tmp_row[j] = state[j + 4*i]
-		for j in range(4):
-			moded_state[j + 4*i] = tmp_row[(j+i) % 4]
-	return moded_state
+    tmp_row = [0] * 4
+    moded_state = state[:4] + [0]*12
+    for i in range(1, 4):
+        for j in range(4):
+            tmp_row[j] = state[j + 4*i]
+        for j in range(4):
+            moded_state[j + 4*i] = tmp_row[(j+i) % 4]
+    return moded_state
 
 # ----------------------------------------------------------
 # ----------------------- MixColumns -----------------------
 # ----------------------------------------------------------
 
 def mix_columns(state):
-	moded_state = [0] * 16
-	for i in range(4):
-		moded_state[i + 4*0] = mul_by_02[state[i + 4*0]] ^ mul_by_03[state[i + 4*1]] ^ state[i + 4*2] ^ state[i + 4*3]
-		moded_state[i + 4*1] = state[i + 4*0] ^ mul_by_02[state[i + 4*1]] ^ mul_by_03[state[i + 4*2]] ^ state[i + 4*3]
-		moded_state[i + 4*2] = state[i + 4*0] ^ state[i + 4*1] ^ mul_by_02[state[i + 4*2]] ^ mul_by_03[state[i + 4*3]]
-		moded_state[i + 4*3] = mul_by_03[state[i + 4*0]] ^ state[i + 4*1] ^ state[i + 4*2] ^ mul_by_02[state[i + 4*3]]
-	return moded_state
+    moded_state = [0] * 16
+    for i in range(4):
+        moded_state[i + 4*0] = mul_by_02[state[i + 4*0]] ^ mul_by_03[state[i + 4*1]] ^ state[i + 4*2] ^ state[i + 4*3]
+        moded_state[i + 4*1] = state[i + 4*0] ^ mul_by_02[state[i + 4*1]] ^ mul_by_03[state[i + 4*2]] ^ state[i + 4*3]
+        moded_state[i + 4*2] = state[i + 4*0] ^ state[i + 4*1] ^ mul_by_02[state[i + 4*2]] ^ mul_by_03[state[i + 4*3]]
+        moded_state[i + 4*3] = mul_by_03[state[i + 4*0]] ^ state[i + 4*1] ^ state[i + 4*2] ^ mul_by_02[state[i + 4*3]]
+    return moded_state
 
 # ----------------------------------------------------------
 # ----------------- Linear Diffusion Layer -----------------
 # ----------------------------------------------------------
 
 def linear_diffusion_layer(state):
-	return mix_columns(shift_rows(sub_bytes(state)))
+    return mix_columns(shift_rows(sub_bytes(state)))

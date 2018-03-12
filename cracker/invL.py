@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 """
-@file inverseL.py
+@file invL.py
 @author snovvcrash <snovvcrash@protonmail.com>
 @date 2017-10
 
@@ -31,13 +34,13 @@ import numpy as np
 invL = L^{-1}, invL - 128x128 binary matrix
 
 Generated with Sage:
-sage: invL = matrix(ZZ, [ ... ]).base_extend(GF(2))
+sage: invL = matrix(ZZ, [ L ]).base_extend(GF(2))
 sage: invL.inverse().str()
 
 Format the output:
 $ sed -i -e 's/0/0,/g' invL.txt
 $ sed -i -e 's/1/1,/g' invL.txt
-$ sed -i -e 's/\\n/,\n\t/g' invL.txt
+$ sed -i -e ':a;N;$!ba;s/\n/,\n\t/g' invL.txt
 """
 
 invL = np.array([
