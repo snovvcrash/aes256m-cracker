@@ -35,7 +35,7 @@ $ ./aes256m -e -m ECB -i /path/to/plaintext -o ciphertext -p v3ry_s3cr3t_p4ssw0r
 ```
 $ xxd /path/to/plaintext | head -n 1 | cut -d " " -f 2-9 | tr -d " "
 ```
-3. Crack the ciphertext using `crack.py` (`cracker` folder):
+3. Crack the ciphertext using `cracker.py` (`cracker` folder):
 ```
 $ python3 crack.py 00ff00ff00ff00ff00ff00ff00ff00ff /path/to/ciphertext
 ```
