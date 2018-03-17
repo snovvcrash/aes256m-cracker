@@ -39,4 +39,4 @@ $ xxd /path/to/plaintext | head -n 1 | cut -d " " -f 2-9 | tr -d " "
 ```
 $ python3 crack.py 00ff00ff00ff00ff00ff00ff00ff00ff /path/to/ciphertext
 ```
-(where `00ff00ff00ff00ff00ff00ff00ff00ff` is the first block of plaintext).
+(where `00ff00ff00ff00ff00ff00ff00ff00ff` is the first block of plaintext from your clipboard).
