@@ -2,7 +2,7 @@
 A demonstration program of cracking the training version of AES-256.
 
 ## AES-256-M
-Let's define a modified version of AES-256 (call it "AES-256-M") which would differ from the original only by the contents of its S-box, namely the new S-box would be:
+Let's define a modified version of AES-256 (call it "AES-256-M") which would differ from the original one only by the contents of its S-box, namely the new S-box would be:
 
 ```
 2b c4 4d a2 76 99 10 ff 56 b9 30 df 0b e4 6d 82
@@ -23,13 +23,13 @@ d1 3e b7 58 8c 63 ea 05 ac 43 ca 25 f1 1e 97 78
 c1 2e a7 48 9c 73 fa 15 bc 53 da 35 e1 0e 87 68
 ```
 
-This repo provides an cli-utility to crack a ciphertext crypted with AES-256-M in ECB mode only with one pair of {*P, C*} available (*P* - a block of plaintext, *C* - the corresponding block of ciphertext).
+This repo provides an cli-utility to crack a ciphertext crypted with AES-256-M in ECB mode only with one pair of {*P, C*} available (*P* - a block of a plaintext, *C* - the corresponding block of the ciphertext).
 
 ## Usage
 1. Encrypt some file using `aes256.cpp` (`aes256m_cpp` folder):
 ```
 $ make
-$ ./aes256m -e -m ECB -i /path/to/plaintext -o ciphertext -p v3ry_s3cr3t_p4ssw0rd
+$ ./aes256m -e -m ECB -i /path/to/plaintext -o ciphertext -p v3ry_s3cr3t_p4ssw0rd && make clean
 ```
 2. Get the string containing the first block of the plaintext (with `xxd` for example) and copy it to the clipboard:
 ```
@@ -39,4 +39,4 @@ $ xxd /path/to/plaintext | head -n 1 | cut -d " " -f 2-9 | tr -d " "
 ```
 $ python3 crack.py 00ff00ff00ff00ff00ff00ff00ff00ff /path/to/ciphertext
 ```
-(where `00ff00ff00ff00ff00ff00ff00ff00ff` is the first block of plaintext from your clipboard).
+(where `00ff00ff00ff00ff00ff00ff00ff00ff` is the first block of the plaintext from your clipboard).
