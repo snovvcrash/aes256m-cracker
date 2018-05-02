@@ -1,6 +1,6 @@
 aes256m-cracker
 ==========
-A demonstration program of cracking the training version of AES-256.
+A demonstration program of cracking the training version of AES-256 (AES-256-M, see below for details).
 
 AES-256-M
 ==========
@@ -46,4 +46,4 @@ $ python3 crack.py 00ff00ff00ff00ff00ff00ff00ff00ff /path/to/ciphertext
 
 Paperwork
 ==========
-Theoretical part is published [here](https://habrahabr.ru/post/339910/ "Ломаем модифицированный AES-256") (Cyrillic inside, **I warned** :ghost:).
+Theoretical part describing how the magic actually works is published [here](https://habrahabr.ru/post/339910/ "Ломаем модифицированный AES-256") (Cyrillic inside, **I warned** :ghost:).
