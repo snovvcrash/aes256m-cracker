@@ -29,10 +29,11 @@ This repo provides an cli-utility to crack a ciphertext crypted with AES-256-M i
 
 Usage
 ==========
-1. Encrypt some file using `aes256.cpp` (`aes256m_cpp` folder):
+1. Encrypt some file using AES-256-M (`aes256m_cpp` folder):
 ```
+$ cd aes256m_cpp
 $ make
-$ ./aes256m -e -m ECB -i /path/to/plaintext -o ciphertext -p v3ry_s3cr3t_p4ssw0rd && make clean
+$ ./aes256m_cpp -e -m ECB -i /path/to/plaintext -o ../cracker/ciphertext -p v3ry_s3cr3t_p4ssw0rd && make clean
 ```
 2. Get the string containing the first block of the plaintext (with `xxd` for example) and copy it to the clipboard:
 ```
@@ -40,7 +41,8 @@ $ xxd /path/to/plaintext | head -n 1 | cut -d " " -f 2-9 | tr -d " "
 ```
 3. Crack the ciphertext using `cracker.py` (`cracker` folder):
 ```
-$ python3 crack.py 00ff00ff00ff00ff00ff00ff00ff00ff /path/to/ciphertext
+$ cd ../cracker
+$ python3 crack.py 00ff00ff00ff00ff00ff00ff00ff00ff ciphertext
 ```
 (where `00ff00ff00ff00ff00ff00ff00ff00ff` is the first block of the plaintext from your clipboard).
 
