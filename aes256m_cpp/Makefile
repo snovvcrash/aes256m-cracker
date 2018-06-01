@@ -6,7 +6,7 @@
 # 12.2016
 #
 
-CXXTARGET=aes256m
+CXXTARGET=aes256m_cpp
 CTARGET=
 
 CXX=g++
