@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <algorithm>      // std::fill
 #include <cstdint>
 #include <cstring>
 #include <cstdlib>
@@ -148,6 +149,8 @@ int main(int argc, char* argv[]) {
 				SHA256 sha256;
 				std::string hashString = sha256(optarg, KEY_HASH_SIZE);
 				hash = reinterpret_cast<uint8_t*>(&hashString[0]);
+				std::memset(optarg, 0x00, std::strlen(optarg));
+				std::fill(hashString.begin(), hashString.end(), 0x00);
 				break;
 			}
 			case 'h' : {
@@ -275,6 +278,8 @@ int main(int argc, char* argv[]) {
 			return ERROR_NOT_AES_CRYPTED;
 		}
 	}
+	
+	std::memset(hash, 0x00, 32);
 
 	infile.close();
 	outfile.close();

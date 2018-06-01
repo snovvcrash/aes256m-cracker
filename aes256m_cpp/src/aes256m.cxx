@@ -312,6 +312,7 @@ void AES_ECB_EncryptFile(
 		ciphertext->write(reinterpret_cast<char*>(block), BLOCK_SIZE);
 	}
 
+	destroyKey(key_schedule, 4);
 	deallocMatrix(key_schedule, 4);
 }
 
@@ -345,6 +346,7 @@ void AES_ECB_DecryptFile(
 		plaintext->write(reinterpret_cast<char*>(block), N);
 	}
 
+	destroyKey(key_schedule, 4);
 	deallocMatrix(key_schedule, 4);
 }
 
@@ -399,6 +401,7 @@ void AES_CBC_EncryptFile(
 		std::copy(second_block, second_block + BLOCK_SIZE, fisrt_block);
 	}
 
+	destroyKey(key_schedule, 4);
 	deallocMatrix(key_schedule, 4);
 }
 
@@ -455,6 +458,7 @@ void AES_CBC_DecryptFile(
 		std::copy(buf, buf + BLOCK_SIZE, fisrt_block);
 	}
 
+	destroyKey(key_schedule, 4);
 	deallocMatrix(key_schedule, 4);
 }
 
@@ -484,6 +488,11 @@ void deallocMatrix(state_t old_matrix, size_t rows) {
 		delete [] old_matrix[i];
 
 	delete [] old_matrix;
+}
+
+void destroyKey(state_t key_schedule, size_t rows) {
+	for (size_t i = 0; i < rows; ++i)
+		std::memset(key_schedule[i], 0x00, 32);
 }
 
 //////////////////////////////////////////////////////////////////////

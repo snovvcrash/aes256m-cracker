@@ -82,6 +82,7 @@ uint8_t getSBoxValue(uint8_t num);
 uint8_t getInvSBoxValue(uint8_t num);
 state_t allocMatrix(size_t rows, size_t cols);
 void deallocMatrix(state_t old_matrix, size_t rows);
+void destroyKey(state_t key_schedule, size_t rows);
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////// MATH ////////////////////////////////
