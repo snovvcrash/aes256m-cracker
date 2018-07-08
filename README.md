@@ -50,6 +50,6 @@ Paperwork
 ==========
 Theoretical part describing how the magic actually works is published [here](https://habrahabr.ru/post/339910/ "Ломаем модифицированный AES-256") (Cyrillic inside, **I warned** :ghost:).
 
-If this project inspired you to great feats, feel free to buy me a coffee:
+If this project inspired you to great feats, feel free to buy me a coffee :coffee:
 
 [![Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoff.ee/snovvcrash)
