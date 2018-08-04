@@ -29,10 +29,11 @@ This repo provides a cli-utility to crack a ciphertext crypted with AES-256-M in
 
 Usage
 ==========
-0. Clone this repo and change directory:
+0. Clone this repo, change directory and resolve necessary dependencies:
 ```
 $ git clone https://github.com/snovvcrash/aes256m-cracker.git ~/aes256m-cracker
 $ cd ~/aes256m-cracker
+$ python3 -m pip install -r requirements.txt
 ```
 
 1. Encrypt some file using AES-256-M (`aes256m_cpp` folder):
