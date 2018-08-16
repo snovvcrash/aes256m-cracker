@@ -61,4 +61,4 @@ Theoretical part describing how the magic actually works is published [here](htt
 
 If this project inspired you to great feats, feel free to buy me a coffee :coffee:
 
-[![Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoff.ee/snovvcrash)
+[![Coffee](https://user-images.githubusercontent.com/23141800/44239356-9546b800-a1c1-11e8-9748-364f76429888.png)](https://buymeacoff.ee/snovvcrash)
