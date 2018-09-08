@@ -3,7 +3,7 @@
 
 """
 @file SR.py
-@author snovvcrash <snovvcrash@protonmail.com>
+@author snovvcrash <scr.im/emsnovvcrash>
 @date 2017-10
 
 @brief Matrix used in ShiftRows transformation (AES-256-M)

@@ -3,7 +3,7 @@
 
 """
 @file invL.py
-@author snovvcrash <snovvcrash@protonmail.com>
+@author snovvcrash <scr.im/emsnovvcrash>
 @date 2017-10
 
 @brief The inverse matrix of AES-256-M's linear diffusion layer (L^{-1})

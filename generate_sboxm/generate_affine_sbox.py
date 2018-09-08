@@ -3,7 +3,7 @@
 
 """
 @file generate_affine_sbox.py
-@author snovvcrash <snovvcrash@protonmail.com>
+@author snovvcrash <scr.im/emsnovvcrash>
 @date 2017-08
 
 @brief Generating affine sbox (like the one used in AES-256-M)

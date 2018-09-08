@@ -3,7 +3,7 @@
 
 """
 @file comparator.py
-@author snovvcrash <snovvcrash@protonmail.com>
+@author snovvcrash <scr.im/emsnovvcrash>
 @date 2017-10
 
 @brief An utility to check the correctness of AES-256-M's matrix-oriented transformations

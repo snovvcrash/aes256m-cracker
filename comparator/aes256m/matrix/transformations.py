@@ -3,7 +3,7 @@
 
 """
 @file transformations.py
-@author snovvcrash <snovvcrash@protonmail.com>
+@author snovvcrash <scr.im/emsnovvcrash>
 @date 2017-10
 
 @brief AES-256-M's linear transformations, matrix implementation

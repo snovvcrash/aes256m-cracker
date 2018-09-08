@@ -3,7 +3,7 @@
 
 """
 @file generate_sboxm.py
-@author snovvcrash <snovvcrash@protonmail.com>
+@author snovvcrash <scr.im/emsnovvcrash>
 @date 2017-08
 
 @brief Re-creating the algorithm of generating the Sbox-M (used in AES-256-M)

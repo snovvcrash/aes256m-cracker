@@ -3,7 +3,7 @@
 
 """
 @file L.py
-@author snovvcrash <snovvcrash@protonmail.com>
+@author snovvcrash <scr.im/emsnovvcrash>
 @date 2017-10
 
 @brief Matrix representing the linear diffusion layer of AES-256-M
