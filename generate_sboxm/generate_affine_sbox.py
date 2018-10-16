@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 @file generate_affine_sbox.py
-@author snovvcrash <scr.im/emsnovvcrash>
+@author Sam Freeside <snovvcrash@protonmail[.]ch>
 @date 2017-08
 
-@brief Generating affine sbox (like the one used in AES-256-M)
+@brief Generating affine sbox (like the one used in AES-256-M).
 
 @license
-Copyright (C) 2017 snovvcrash
+Copyright (C) 2017 Sam Freeside
 
 This file is part of aes256m-cracker.
 
@@ -47,14 +47,17 @@ Affine function: y(x) = M*x + v, where
 	             + is bitwise XOR (^).
 """
 
+
 def affine_function(x, M, v):
 	Mx = (np.dot(M, x) % 2).T
 	y = Mx ^ v
 	return y
 
+
 def S(x, M, v, bin_length):
 	raw_value = list(affine_function(to_bin(x, bin_length), M, v).flat)
 	return int(''.join([ str(b) for b in raw_value ]), 2)
+
 
 def generate_affine_sbox(length):
 	bin_length = len(bin(length-1)[2:])
@@ -72,9 +75,11 @@ def generate_affine_sbox(length):
 		return (sbox, M, v)
 	return (None, None, None)
 
+
 # ----------------------------------------------------------
 # ------------------ SIMULATE AFFINE SBOX ------------------
 # ----------------------------------------------------------
+
 
 def next_unique(sample, sbox):
 	while True:
@@ -82,8 +87,10 @@ def next_unique(sample, sbox):
 		if front not in sbox:
 			return front
 
+
 def xor(x, y, z):
 	return x ^ y ^ z
+
 
 def emulate_affine_sbox_generation():
 	sample = random.sample(range(256), 256)
@@ -127,12 +134,15 @@ def emulate_affine_sbox_generation():
 		return sbox
 	return None
 
+
 # ----------------------------------------------------------
 # ----------------------- UTILITIES ------------------------
 # ----------------------------------------------------------
 
+
 def to_bin(number, bin_length):
 	return np.array([ [int(b)] for b in bin(number)[2:].zfill(bin_length) ])
+
 
 def print_sbox(name, sbox, length):
 	dim = math.sqrt(length)
@@ -150,6 +160,7 @@ def print_sbox(name, sbox, length):
 			print(item, end=', ')
 		print('.}')
 
+
 def any_duplicates(sbox):
 	seen = set()
 	for item in sbox:
@@ -158,6 +169,7 @@ def any_duplicates(sbox):
 		else:
 			return True
 	return False
+
 
 def is_sbox_degenerate(sbox):
 	length = len(sbox)
@@ -174,9 +186,11 @@ def is_sbox_degenerate(sbox):
 
 	return count_prob == length
 
+
 # ----------------------------------------------------------
 # -------------------------- MAIN --------------------------
 # ----------------------------------------------------------
+
 
 if __name__ == '__main__':
 	if len(sys.argv) != 2:

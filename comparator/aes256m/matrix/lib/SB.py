@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 @file SB.py
-@author snovvcrash <scr.im/emsnovvcrash>
+@author Sam Freeside <snovvcrash@protonmail[.]ch>
 @date 2017-10
 
-@brief Matrix used in SubBytes transformation (AES-256-M)
+@brief Matrix used in SubBytes transformation (AES-256-M).
 
 @license
-Copyright (C) 2017 snovvcrash
+Copyright (C) 2017 Sam Freeside
 
 This file is part of aes256m-cracker.
 
@@ -169,6 +169,7 @@ SB = np.array([
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1]
 ])
 
+
 def buildSB():
 	M = np.array([ [0, 1, 1, 1, 0, 0, 0, 1],
                    [1, 1, 0, 1, 1, 1, 1, 1],
@@ -184,6 +185,7 @@ def buildSB():
 		SB[a:b, a:b] = M
 
 	return SB
+
 
 if __name__ == '__main__':
 	# Printing FULL contents of NumPy array

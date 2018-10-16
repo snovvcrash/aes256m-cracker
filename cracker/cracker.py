@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 @file cracker.py
-@author snovvcrash <scr.im/emsnovvcrash>
+@author Sam Freeside <snovvcrash@protonmail[.]ch>
 @date 2017-10
 
-@brief Cracking AES-256-M
+@brief Cracking AES-256-M.
 
 @license
-Copyright (C) 2017 snovvcrash
+Copyright (C) 2017 Sam Freeside
 
 This file is part of aes256m-cracker.
 
@@ -34,13 +34,16 @@ import numpy as np
 
 from invL import invL
 
+
 def decblock_to_binstate(decblock):
 	decstate = [ decblock[r + 4*c] for r in range(4) for c in range(4) ]
 	return np.array([ [int(b)] for byte in decstate for b in bin(byte)[2:].zfill(8) ])
 
+
 def binstate_to_decblock(binstate):
 	decstate = [ int(''.join(str(b) for b in binstate[a:b]), 2) for a, b in zip(range(0, 121, 8), range(8, 129, 8)) ]
 	return [ decstate[r + 4*c] for r in range(4) for c in range(4) ]
+
 
 if __name__ == '__main__':
 	if len(sys.argv) != 3:

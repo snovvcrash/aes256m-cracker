@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 @file transformations.py
-@author snovvcrash <scr.im/emsnovvcrash>
+@author Sam Freeside <snovvcrash@protonmail[.]ch>
 @date 2017-10
 
-@brief AES-256-M's linear transformations, matrix implementation
+@brief AES-256-M's linear transformations, matrix implementation.
 
 @license
-Copyright (C) 2017 snovvcrash
+Copyright (C) 2017 Sam Freeside
 
 This file is part of aes256m-cracker.
 
@@ -40,22 +40,28 @@ from .lib.L  import L
 # ------------------------ SubBytes ------------------------
 # ----------------------------------------------------------
 
+
 def sub_bytes(state):
 	return matrix_transformation(state, SB, V)
+
 
 # ----------------------------------------------------------
 # ----------------------- ShiftRows ------------------------
 # ----------------------------------------------------------
 
+
 def shift_rows(state):
 	return matrix_transformation(state, SR)
+
 
 # ----------------------------------------------------------
 # ----------------------- MixColumns -----------------------
 # ----------------------------------------------------------
 
+
 def mix_columns(state):
 	return matrix_transformation(state, MC)
+
 
 # ----------------------------------------------------------
 # ----------------- Linear Diffusion Layer -----------------
@@ -71,8 +77,10 @@ x |-> MC*SR*SB*x + V = L*x + V
 L = MC*SR*SB
 """
 
+
 def linear_diffusion_layer(state):
 	return matrix_transformation(state, L, V)
+
 
 # ----------------------------------------------------------
 # ----------------------- UTILITIES ------------------------
@@ -86,6 +94,7 @@ def linear_diffusion_layer(state):
 
 x |-> M*x + k + V
 """
+
 
 def matrix_transformation(state, matrix, key=np.zeros(128, int), vector=np.zeros(128, int)):
 	return (matrix.dot(state) % 2).T.ravel() ^ key ^ vector

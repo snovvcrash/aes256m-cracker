@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 @file MC.py
-@author snovvcrash <scr.im/emsnovvcrash>
+@author Sam Freeside <snovvcrash@protonmail[.]ch>
 @date 2017-10
 
-@brief Matrix used in MixColumns transformation (AES-256-M)
+@brief Matrix used in MixColumns transformation (AES-256-M).
 
 @license
-Copyright (C) 2017 snovvcrash
+Copyright (C) 2017 Sam Freeside
 
 This file is part of aes256m-cracker.
 
@@ -219,6 +219,7 @@ MC = np.array([
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
 ])
 
+
 def buildMC():
 	MC2 = np.array([ [0, 1, 0, 0, 0, 0, 0, 0],
                      [0, 0, 1, 0, 0, 0, 0, 0],
@@ -256,6 +257,7 @@ def buildMC():
 		MC[a:b, a+96:b+96] = MC1
 
 	return MC
+
 
 if __name__ == '__main__':
 	# Printing FULL contents of NumPy array

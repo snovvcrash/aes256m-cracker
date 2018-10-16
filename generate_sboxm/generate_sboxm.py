@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 @file generate_sboxm.py
-@author snovvcrash <scr.im/emsnovvcrash>
+@author Sam Freeside <snovvcrash@protonmail[.]ch>
 @date 2017-08
 
-@brief Re-creating the algorithm of generating the Sbox-M (used in AES-256-M)
+@brief Re-creating the algorithm of generating the Sbox-M (used in AES-256-M).
 
 @license
-Copyright (C) 2017 snovvcrash
+Copyright (C) 2017 Sam Freeside
 
 This file is part of aes256m-cracker.
 
@@ -49,6 +49,7 @@ original_sboxm = [0x2b, 0xc4, 0x4d, 0xa2, 0x76, 0x99, 0x10, 0xff, 0x56, 0xb9, 0x
                   0x31, 0xde, 0x57, 0xb8, 0x6c, 0x83, 0x0a, 0xe5, 0x4c, 0xa3, 0x2a, 0xc5, 0x11, 0xfe, 0x77, 0x98,
                   0xc1, 0x2e, 0xa7, 0x48, 0x9c, 0x73, 0xfa, 0x15, 0xbc, 0x53, 0xda, 0x35, 0xe1, 0x0e, 0x87, 0x68]
 
+
 def generate_sboxm():
 	M = np.array([ [0, 1, 1, 1, 0, 0, 0, 1],
                    [1, 1, 0, 1, 1, 1, 1, 1],
@@ -62,6 +63,7 @@ def generate_sboxm():
 	v = np.array([ [0, 0, 1, 0, 1, 0, 1, 1] ])  # binary(0x2b) = binary(43)
 
 	return [ S(i, M, v, 8) for i in range(256) ]
+
 
 if __name__ == '__main__':
 	sboxm = generate_sboxm()

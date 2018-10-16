@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 @file comparator.py
-@author snovvcrash <scr.im/emsnovvcrash>
+@author Sam Freeside <snovvcrash@protonmail[.]ch>
 @date 2017-10
 
-@brief An utility to check the correctness of AES-256-M's matrix-oriented transformations
+@brief An utility to check the correctness of AES-256-M's matrix-oriented transformations.
 
 @license
-Copyright (C) 2017 snovvcrash
+Copyright (C) 2017 Sam Freeside
 
 This file is part of aes256m-cracker.
 
@@ -37,6 +37,7 @@ import aes256m.matrix.transformations as matrix
 # ----------------------------------------------------------
 # ----------------------- Comparator -----------------------
 # ----------------------------------------------------------
+
 
 class Comparator:
 	def __init__(self, state=None):
@@ -67,9 +68,11 @@ class Comparator:
 
 		print('------------------------------------')
 
+
 # ----------------------------------------------------------
 # -------------------------- Main --------------------------
 # ----------------------------------------------------------
+
 
 if __name__ == '__main__':
 	cmp = Comparator()

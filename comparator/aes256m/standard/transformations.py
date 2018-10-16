@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 @file transformations.py
-@author snovvcrash <scr.im/emsnovvcrash>
+@author Sam Freeside <snovvcrash@protonmail[.]ch>
 @date 2017-10
 
-@brief AES-256-M's linear transformations, standard implementation
+@brief AES-256-M's linear transformations, standard implementation.
 
 @license
-Copyright (C) 2017 snovvcrash
+Copyright (C) 2017 Sam Freeside
 
 This file is part of aes256m-cracker.
 
@@ -79,9 +79,11 @@ mul_by_03 = [0x00, 0x03, 0x06, 0x05, 0x0c, 0x0f, 0x0a, 0x09, 0x18, 0x1b, 0x1e, 0
              0x3b, 0x38, 0x3d, 0x3e, 0x37, 0x34, 0x31, 0x32, 0x23, 0x20, 0x25, 0x26, 0x2f, 0x2c, 0x29, 0x2a,
              0x0b, 0x08, 0x0d, 0x0e, 0x07, 0x04, 0x01, 0x02, 0x13, 0x10, 0x15, 0x16, 0x1f, 0x1c, 0x19, 0x1a]
 
+
 # ----------------------------------------------------------
 # ------------------------ SubBytes ------------------------
 # ----------------------------------------------------------
+
 
 def sub_bytes(state):
     moded_state = [0] * 16
@@ -90,9 +92,11 @@ def sub_bytes(state):
             moded_state[j + 4*i] = sboxm[state[j + 4*i]]
     return moded_state
 
+
 # ----------------------------------------------------------
 # ----------------------- ShiftRows ------------------------
 # ----------------------------------------------------------
+
 
 def shift_rows(state):
     tmp_row = [0] * 4
@@ -104,9 +108,11 @@ def shift_rows(state):
             moded_state[j + 4*i] = tmp_row[(j+i) % 4]
     return moded_state
 
+
 # ----------------------------------------------------------
 # ----------------------- MixColumns -----------------------
 # ----------------------------------------------------------
+
 
 def mix_columns(state):
     moded_state = [0] * 16
@@ -117,9 +123,11 @@ def mix_columns(state):
         moded_state[i + 4*3] = mul_by_03[state[i + 4*0]] ^ state[i + 4*1] ^ state[i + 4*2] ^ mul_by_02[state[i + 4*3]]
     return moded_state
 
+
 # ----------------------------------------------------------
 # ----------------- Linear Diffusion Layer -----------------
 # ----------------------------------------------------------
+
 
 def linear_diffusion_layer(state):
     return mix_columns(shift_rows(sub_bytes(state)))
