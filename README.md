@@ -1,6 +1,6 @@
 aes256m-cracker
 ==========
-A demonstration program of cracking the training version of AES-256 (AES-256-M, see below for details).
+A demonstration program of cracking a training version of AES-256 (AES-256-M, see below for details).
 
 AES-256-M
 ==========
