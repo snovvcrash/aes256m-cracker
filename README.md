@@ -58,7 +58,3 @@ $ python3 -m pip install -r requirements.txt
 Paperwork
 ==========
 Theoretical part describing how the magic actually works is published [here](https://habrahabr.ru/post/339910/ "Ломаем модифицированный AES-256") (Cyrillic inside, **I warned** :ghost:).
-
-If this project inspired you to great feats, feel free to buy me a coffee :coffee:
-
-[![Coffee](https://user-images.githubusercontent.com/23141800/44239356-9546b800-a1c1-11e8-9748-364f76429888.png)](https://buymeacoff.ee/snovvcrash)
